@@ -8,7 +8,7 @@ end
 feature 'entering player names' do
   scenario 'names should appear on the screen after being entered' do
     sign_in_and_play
-    expect(page).to have_content('Ecnerual HP: 120')
+    expect(page).to have_content('Ecnerual: 120HP')
   end
 end
 
@@ -17,5 +17,13 @@ feature 'attacking an opponent' do
     sign_in_and_play
     click_link 'Attack'
     expect(page).to have_content('Laurence attacked Ecnerual!')
+  end
+
+  scenario 'should reduce their hitpoints' do
+    sign_in_and_play
+    click_link 'Attack'
+    click_link 'Ok.'
+    expect(page).to have_content('Ecnerual: 110HP')
+    expect(page).not_to have_content('Ecnerual: 120HP')
   end
 end
