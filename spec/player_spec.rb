@@ -15,11 +15,4 @@ describe Player do
       expect { subject.reduce_hp }.to change { subject.hp }.by(-10)
     end
   end
-
-  describe '#attack' do
-    it 'should damage another player' do
-      expect(ecnerual).to receive(:reduce_hp)
-      laurence.attack(ecnerual)
-    end
-  end
 end
