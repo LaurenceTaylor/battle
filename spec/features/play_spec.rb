@@ -3,10 +3,8 @@ feature 'entering player names' do
     sign_in_and_play
     expect(page).to have_content('Laurence vs. Ecnerual')
   end
-end
 
-feature 'entering player names' do
-  scenario 'names should appear on the screen after being entered' do
+  scenario 'player2 HP should appear on the screen' do
     sign_in_and_play
     expect(page).to have_content('Ecnerual: 120HP')
   end
