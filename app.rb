@@ -3,7 +3,6 @@ require_relative './lib/player.rb'
 require_relative './lib/game.rb'
 
 class Battle < Sinatra::Base
-  enable :sessions
   get '/' do
     'Testing infrastructure working!'
   end
@@ -16,7 +15,7 @@ class Battle < Sinatra::Base
     player1 = Player.new(params[:Player1])
     player2 = Player.new(params[:Player2])
     $game = Game.new(player1, player2)
-    redirect :play
+    redirect '/play'
   end
 
   get '/play' do
